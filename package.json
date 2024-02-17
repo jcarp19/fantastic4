@@ -22,7 +22,15 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "watch:sass": "sass sass/main.scss public/css/style.css -w",
+    "devserver": "live-server --open=public",
+    "compile:sass": "sass sass/main.scss public/css/style.comp.css",
+    "concat:css": "concat -o public/css/style.concat.css public/css/style.comp.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' public/css/style.concat.css -o public/css/style.prefix.css",
+    "compress:css": "sass public/css/style.prefix.css public/css/style.css",
+    "build:css": "npm-run-all compile:sass concat:css prefix:css compress:css",
+    "firebase:deploy": "npm-run-all compile:sass concat:css prefix:css compress:css react-scripts build firebase deploy"
   },
   "eslintConfig": {
     "extends": [

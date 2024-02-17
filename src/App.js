@@ -1,7 +1,13 @@
 import "./App.css";
+import { Header } from "./components/Header";
 
 function App() {
-  return <p>Fantastic4</p>;
+  return (
+    <>
+      <Header />
+      <p>Fantastic4</p>;
+    </>
+  );
 }
 
 export default App;
